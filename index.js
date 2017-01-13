@@ -11,7 +11,8 @@ app.get('/', function(request, response) {
 
 app.options('/preflight', cors({
   origin: true,
-  credentials: true
+  credentials: true,
+  preflightContinue: true
 }));
 
 app.get('/preflight', function(req, res) {
