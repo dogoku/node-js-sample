@@ -22,6 +22,12 @@ app.get('/preflight', cors(corsOpts), function(req, res) {
   });
 })
 
+app.get('/all', cors(), function (req, res) {
+  res.json({
+    text: 'Simple CORS requests are working.'
+  });
+})
+
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
 })
