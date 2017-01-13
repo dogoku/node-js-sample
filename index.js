@@ -28,6 +28,12 @@ app.get('/all', cors(), function (req, res) {
   });
 })
 
+app.get('/zscaler', cors({ origin: 'https://gateway.zscaler.net'}), function (req, res) {
+  res.json({
+    text: 'zscaler allowed'
+  });
+})
+
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
 })
