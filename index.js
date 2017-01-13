@@ -9,13 +9,14 @@ app.get('/', function(request, response) {
   response.send('Hello kokos!')
 })
 
-app.options('/preflight', cors({
+var corsOpts = {
   origin: true,
   credentials: true,
   preflightContinue: true
-}));
+};
 
-app.get('/preflight', function(req, res) {
+app.options('/preflight', cors(corsOpts));
+app.get('/preflight', cors(corsOpts), function(req, res) {
   res.json({
     text: 'Complex CORS requests are working.'
   });
